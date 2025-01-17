@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Author {
     private String firstName;
     private String lastName;
@@ -22,4 +24,22 @@ public class Author {
     public void setLastName(String lastName) {
         this.lastName = lastName.replaceAll("^[A-Za-zА-Яа-я]", "");
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s\n", getFirstName(), getLastName());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Author author)) return false;
+        return Objects.equals(getFirstName(), author.getFirstName()) && Objects.equals(getLastName(), author.getLastName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getFirstName(), getLastName());
+    }
+
+
 }
