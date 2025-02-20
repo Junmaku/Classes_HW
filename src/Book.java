@@ -4,6 +4,17 @@ public class Book {
     private String title;
     private int year;
     public Author author;
+    private int year;
+
+    public Book(Author author, String title) {
+        this.author = author;
+        this.title = title;
+    }
+
+    public Book(int year, String title) {
+        this.year = year;
+        this.title = title;
+    }
 
     public Book(String title, int year, Author author) {
         setTitle(title);
